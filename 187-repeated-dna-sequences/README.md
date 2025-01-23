@@ -1,4 +1,3 @@
-<p> DSA hit: Use Sliding Window</p>
 <h2><a href="https://leetcode.com/problems/repeated-dna-sequences">Repeated DNA Sequences</a></h2> <img src='https://img.shields.io/badge/Difficulty-Medium-orange' alt='Difficulty: Medium' /><hr><p>The <strong>DNA sequence</strong> is composed of a series of nucleotides abbreviated as <code>&#39;A&#39;</code>, <code>&#39;C&#39;</code>, <code>&#39;G&#39;</code>, and <code>&#39;T&#39;</code>.</p>
 
 <ul>
