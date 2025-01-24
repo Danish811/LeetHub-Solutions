@@ -13,7 +13,7 @@ public:
     ListNode* middleNode(ListNode* head) {
         ListNode *Slow = head;
         ListNode *Fast= head;
-        while(Fast->next && Fast->next->next){
+        while(Fast && Fast->next){
             Slow = Slow->next;
             Fast = Fast->next->next;
         }
