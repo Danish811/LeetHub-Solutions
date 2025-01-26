@@ -1,37 +1,35 @@
 class Solution {
 public:
-    vector<int> Visi;
-    vector<int> List[2001];
-    bool DFS(int node, vector<int> List[]){
-        if(Visi[node] == 2){
-            return false;
-        }
-        if(Visi[node]==1) return true;
-        Visi[node] = 2;
-        bool ans = true;
-        for(auto child: List[node]){
-            if(!DFS(child, List)){
-                return false;
-            }
-        }
-        Visi[node] = 1;
-        return true;
-    }
     bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
         int n = numCourses;
-        Visi.assign(n,0);
-        for(int i=0; i<n; i++) List[i].clear();
-
+        vector<int> indegree(n,0);
+        queue<int> Q;
+        vector<int> List[n];
         for(int i=0; i<prerequisites.size(); i++){
             int u = prerequisites[i][0];
             int v = prerequisites[i][1];
-            if(u == v) return false;
-            List[u].push_back(v);
+            List[v].push_back(u);
+            indegree[u]++;
         }
+
+
         for(int i=0; i<n; i++){
-            if(Visi[i]==0 && !DFS(i,List)) return false;
+            if(indegree[i]==0) Q.push(i);
         }
-        return true;
-        // return false;
+        int processed = 0;
+        while(!Q.empty()){
+            int node = Q.front();
+            Q.pop();
+            processed++;
+
+            for(int child: List[node]){
+                indegree[child]--;
+                if(indegree[child]==0){
+                    Q.push(child);
+                }
+            }
+        }
+
+        return processed == n;
     }
 };
