@@ -12,7 +12,7 @@
 class Solution {
 public:
     int count=1;
-    map<int,int> Kth;
+    unordered_map<int,int> Kth;
     void DFS(TreeNode *root){
         if(!root) return;
         DFS(root->left);
