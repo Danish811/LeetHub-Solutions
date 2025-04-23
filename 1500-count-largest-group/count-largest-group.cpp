@@ -14,6 +14,7 @@ public:
         int maxi = 0;
         for(int i=1; i<=n; i++){
             sum = Calc(i);
+            cout << sum << endl;
             M[sum]++;
             maxi = max(maxi,M[sum]);
         }
